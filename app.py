@@ -23,6 +23,7 @@ docs = db3.similarity_search(query)
 #print(docs[0].page_content)
 
 PROMPT=PromptTemplate(template=prompt_template, input_variables=["context", "question"])
+chain_type_kwargs={"prompt": PROMPT}
 
 llm = OpenAI(temperature=0.6)
 response = llm.invoke("What is Capital of India?")
